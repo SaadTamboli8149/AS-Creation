@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AS Creation — Handmade Gifts & Hampers</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="theme-color" content="#2b0f1a">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AS Creation">
+
+<meta name="description" content="AS Creation — handmade gifts, hampers & accessories, thoughtfully wrapped. Order directly on WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AS Creation — Handmade Gifts & Hampers">
+<meta property="og:description" content="Thoughtfully wrapped, beautifully yours. Browse our handmade gifts & hampers and order on WhatsApp.">
+<meta property="og:image" content="icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AS Creation — Handmade Gifts & Hampers">
+<meta name="twitter:description" content="Thoughtfully wrapped, beautifully yours.">
+<meta name="twitter:image" content="icon-512.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#fdf1f4;
+    --panel:#ffffff;
+    --deep:#3a0f1f;
+    --rose:#e8608a;
+    --rose-dark:#c94571;
+    --rose-soft:#f6c9d6;
+    --text:#3a1420;
+    --text-dim:#8a5a68;
+    --line:#f1c8d4;
+    --whatsapp:#3fae5c;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--bg); color:var(--text); font-family:'Jost',sans-serif; font-weight:300; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(253,241,244,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{ display:flex; align-items:center; gap:9px; font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--deep); letter-spacing:0.02em; }
+  .logo img{ width:38px; height:38px; border-radius:50%; object-fit:cover; }
+  .logo span{ color:var(--rose); }
+  .nav-links{ display:flex; align-items:center; gap:22px; font-size:13px; letter-spacing:0.05em; }
+  .nav-links button{ background:none; border:none; color:var(--text); font-size:13px; font-family:inherit; }
+  .nav-links button:hover{ color:var(--rose-dark); }
+  .cart-btn{
+    position:relative; display:flex; align-items:center; gap:6px;
+    border:1px solid var(--rose); border-radius:20px; padding:7px 14px; color:var(--rose-dark); background:var(--panel);
+  }
+  .cart-count{
+    background:var(--rose); color:#fff; font-size:10px; font-weight:600;
+    width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  }
+  .hamburger{ display:none; background:none; border:none; padding:6px; }
+  .hamburger svg{ width:22px; height:22px; stroke:var(--deep); fill:none; stroke-width:1.8; }
+
+  /* ---------- OFFER BANNER ---------- */
+  .offer-bar{
+    background:linear-gradient(90deg, var(--rose-dark), var(--rose));
+    color:#fff; text-align:center; font-size:12.5px; letter-spacing:0.04em;
+    padding:9px 40px; position:relative; display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .offer-bar b{ font-weight:600; }
+  .offer-bar .close-offer{
+    position:absolute; right:10px; top:50%; transform:translateY(-50%);
+    background:none; border:none; color:#fff; opacity:0.85; font-size:15px; line-height:1; padding:4px;
+  }
+  .offer-bar.hide{ display:none; }
+
+  @media (max-width:640px){
+    .hamburger{ display:block; }
+    .nav-links{
+      position:fixed; top:60px; left:0; right:0; z-index:49;
+      background:var(--panel); border-bottom:1px solid var(--line);
+      flex-direction:column; align-items:flex-start; gap:0;
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+      padding:0 24px;
+    }
+    .nav-links.open{ max-height:260px; padding:14px 24px 18px; }
+    .nav-links button{ width:100%; text-align:left; padding:10px 0; }
+    .cart-btn{ width:100%; justify-content:flex-start; border:none; padding:10px 0; }
+  }
+
+  /* ---------- HERO ---------- */
+  header{ text-align:center; padding:54px 24px 40px; }
+  .hero-logo{ width:84px; height:84px; border-radius:50%; object-fit:cover; margin:0 auto 18px; box-shadow:0 8px 22px rgba(232,96,138,0.22); }
+  .eyebrow{ font-size:11px; letter-spacing:0.35em; text-transform:uppercase; color:var(--rose-dark); margin-bottom:14px; }
+  h1{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(36px,7vw,58px); color:var(--deep); line-height:1.06; }
+  h1 em{ font-style:italic; color:var(--rose); font-weight:500; }
+  .tagline{ max-width:440px; margin:16px auto 0; font-size:14.5px; line-height:1.7; color:var(--text-dim); }
+
+  /* ---------- TRUST BADGES ---------- */
+  .badges{ display:flex; justify-content:center; flex-wrap:wrap; gap:28px; padding:0 20px 34px; max-width:800px; margin:0 auto; }
+  .badge{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--text-dim); letter-spacing:0.02em; }
+  .badge svg{ width:20px; height:20px; stroke:var(--rose-dark); fill:none; stroke-width:1.5; flex-shrink:0; }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{ max-width:1080px; margin:0 auto; padding:10px 20px 70px; }
+  .testimonials h2{ font-family:'Cormorant Garamond',serif; font-size:26px; color:var(--deep); text-align:center; margin-bottom:8px; }
+  .testimonials p.sub{ text-align:center; font-size:13px; color:var(--text-dim); margin-bottom:28px; }
+  .t-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+  .t-card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; }
+  .t-stars{ display:flex; gap:2px; margin-bottom:10px; color:var(--rose); font-size:13px; letter-spacing:2px; }
+  .t-card p.quote{ font-size:13.5px; line-height:1.65; color:var(--text); margin-bottom:14px; }
+  .t-name{ font-size:12.5px; color:var(--text-dim); font-weight:400; }
+  .t-name b{ color:var(--deep); font-weight:500; }
+
+  /* ---------- SECTIONS TOGGLE ---------- */
+  .view{ display:none; }
+  .view.active{ display:block; }
+
+  section.catalog{ max-width:1080px; margin:0 auto; padding:10px 20px 80px; }
+  .catalog-head{ display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:8px; flex-wrap:wrap; gap:10px; }
+  .catalog-head h2{ font-family:'Cormorant Garamond',serif; font-size:26px; color:var(--deep); }
+  .catalog-head span{ font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-dim); }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin-top:20px; }
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px; display:flex; flex-direction:column; transition:box-shadow .3s ease, transform .3s ease; }
+  .card:hover{ box-shadow:0 12px 28px rgba(232,96,138,0.14); transform:translateY(-3px); }
+  .frame{ width:100%; aspect-ratio:1/1; border-radius:10px; background:linear-gradient(135deg,var(--rose-soft),#fff); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+  .glyph{ width:44px; height:44px; stroke:var(--rose-dark); fill:none; stroke-width:1.3; }
+  .label{ font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose-dark); margin-bottom:6px; }
+  .card h3{ font-family:'Cormorant Garamond',serif; font-size:21px; color:var(--deep); margin-bottom:8px; }
+  .card p.desc{ font-size:13px; line-height:1.6; color:var(--text-dim); flex-grow:1; margin-bottom:16px; }
+  .price-row{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:14px; }
+  .price{ font-family:'Cormorant Garamond',serif; font-size:21px; color:var(--rose-dark); }
+  .add-btn{ background:var(--rose); color:#fff; border:none; padding:9px 16px; border-radius:20px; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; }
+  .add-btn:hover{ background:var(--rose-dark); }
+  .edit-note{ text-align:center; font-size:11.5px; color:var(--text-dim); margin-top:22px; opacity:0.8; }
+
+  /* ---------- CART VIEW ---------- */
+  .cart-wrap{ max-width:640px; margin:0 auto; padding:40px 24px 80px; }
+  .cart-wrap h2{ font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--deep); margin-bottom:20px; }
+  .cart-item{ display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .cart-item .frame{ width:60px; height:60px; margin:0; flex-shrink:0; }
+  .cart-item .glyph{ width:26px; height:26px; }
+  .ci-info{ flex-grow:1; }
+  .ci-info h4{ font-size:15px; font-weight:400; color:var(--deep); }
+  .ci-info .p{ font-size:13px; color:var(--text-dim); }
+  .qty{ display:flex; align-items:center; gap:8px; }
+  .qty button{ width:26px; height:26px; border-radius:50%; border:1px solid var(--rose); background:#fff; color:var(--rose-dark); font-size:14px; }
+  .remove-btn{ font-size:11px; color:var(--text-dim); text-decoration:underline; margin-left:10px; background:none; border:none; }
+  .cart-total{ display:flex; justify-content:space-between; padding-top:18px; font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--deep); }
+  .checkout-btn{ margin-top:22px; width:100%; background:var(--whatsapp); color:#fff; border:none; padding:15px; border-radius:26px; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; gap:10px; }
+  .checkout-btn svg{ width:17px; height:17px; }
+  .empty-cart{ text-align:center; color:var(--text-dim); font-size:14px; padding:30px 0; }
+
+  /* ---------- LOGIN VIEW ---------- */
+  .auth-wrap{ max-width:380px; margin:0 auto; padding:50px 24px 80px; }
+  .auth-wrap h2{ font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--deep); margin-bottom:8px; text-align:center; }
+  .auth-wrap p.sub{ text-align:center; font-size:13px; color:var(--text-dim); margin-bottom:26px; }
+  .field{ margin-bottom:14px; }
+  .field label{ display:block; font-size:11.5px; letter-spacing:0.05em; color:var(--text-dim); margin-bottom:6px; }
+  .input-wrap{ position:relative; }
+  .input-wrap svg{ position:absolute; left:13px; top:50%; transform:translateY(-50%); width:16px; height:16px; stroke:var(--rose-dark); fill:none; stroke-width:1.6; pointer-events:none; }
+  .field input{ width:100%; padding:12px 14px 12px 40px; border:1px solid var(--line); border-radius:8px; font-size:14px; font-family:inherit; background:#fff; }
+  .field input:focus{ outline:none; border-color:var(--rose); }
+  .auth-btn{ width:100%; background:var(--rose); color:#fff; border:none; padding:13px; border-radius:24px; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-top:8px; }
+  .auth-btn:hover{ background:var(--rose-dark); }
+  .auth-toggle{ text-align:center; font-size:12.5px; color:var(--text-dim); margin-top:16px; }
+  .auth-toggle button{ background:none; border:none; color:var(--rose-dark); text-decoration:underline; font-size:12.5px; }
+  .auth-msg{ text-align:center; font-size:12.5px; margin-top:12px; min-height:16px; }
+  .auth-msg.err{ color:#c0392b; }
+  .auth-msg.ok{ color:#1e8a4c; }
+  .user-badge{ text-align:center; font-size:14px; color:var(--deep); display:flex; align-items:center; justify-content:center; gap:8px; }
+  .user-badge svg{ width:34px; height:34px; stroke:var(--rose); fill:none; stroke-width:1.4; border:1px solid var(--line); border-radius:50%; padding:7px; }
+  .logout-btn{ display:block; margin:18px auto 0; background:none; border:1px solid var(--rose); color:var(--rose-dark); padding:9px 20px; border-radius:20px; font-size:12px; }
+
+  /* ---------- CONTACT VIEW ---------- */
+  .contact-wrap{ max-width:520px; margin:0 auto; padding:50px 24px 90px; text-align:center; }
+  .contact-wrap h2{ font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--deep); margin-bottom:10px; }
+  .contact-wrap p.sub{ font-size:13.5px; color:var(--text-dim); margin-bottom:28px; }
+  .contact-detail{ font-size:14px; color:var(--text); margin-bottom:12px; display:flex; align-items:center; justify-content:center; gap:10px; }
+  .contact-detail svg{ width:18px; height:18px; stroke:var(--rose-dark); fill:none; stroke-width:1.6; flex-shrink:0; }
+  .contact-detail b{ color:var(--deep); }
+  .cta-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+  .btn{ display:inline-flex; align-items:center; gap:9px; padding:13px 24px; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; border-radius:24px; }
+  .btn svg{ width:16px; height:16px; }
+  .btn-wa{ background:var(--whatsapp); color:#fff; }
+  .btn-ig{ background:linear-gradient(135deg,#f6d97a,#e8608a 45%,#7a3a63 85%); color:#fff; }
+
+  footer{ text-align:center; padding:40px 24px 26px; border-top:1px solid var(--line); }
+  .footer-logo{ display:flex; align-items:center; justify-content:center; gap:8px; font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; color:var(--deep); margin-bottom:6px; }
+  .footer-logo img{ width:30px; height:30px; border-radius:50%; object-fit:cover; }
+  .footer-logo span{ color:var(--rose); }
+  .footer-tag{ font-size:12px; color:var(--text-dim); margin-bottom:18px; }
+  .footer-social{ display:flex; justify-content:center; gap:14px; margin-bottom:18px; }
+  .footer-social a{ width:34px; height:34px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  .footer-social a:hover{ border-color:var(--rose); }
+  .footer-social svg{ width:16px; height:16px; stroke:var(--rose-dark); fill:none; stroke-width:1.7; }
+  .footer-links{ display:flex; justify-content:center; gap:18px; font-size:11.5px; margin-bottom:14px; }
+  .footer-links button{ background:none; border:none; color:var(--text-dim); font-family:inherit; }
+  .footer-links button:hover{ color:var(--rose-dark); }
+  .footer-copy{ font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); opacity:0.7; }
+</style>
+</head>
+<body>
+
+<div class="offer-bar" id="offerBar">
+  <span><b>Flat 20% OFF</b> on your first order — use code <b>FESTIVE20</b> at checkout</span>
+  <button class="close-offer" onclick="document.getElementById('offerBar').classList.add('hide')">✕</button>
+</div>
+
+<nav>
+  <div class="logo"><img src="logo.png" alt="AS Creation logo">AS <span>Creation</span></div>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileNav()">
+    <svg viewBox="0 0 24 24" id="hamburgerIcon"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <button onclick="showView('shop')">Shop</button>
+    <button onclick="showView('contact')">Contact</button>
+    <button onclick="showView('auth')" id="loginNavBtn" style="display:flex; align-items:center; gap:5px;">
+      <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      <span id="loginNavLabel">Login</span>
+    </button>
+    <button class="cart-btn" onclick="showView('cart')">
+      <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" fill="none" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6H18a2 2 0 0 0 2-1.6L21.5 8H6"/></svg>
+      Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ SHOP VIEW ============ -->
+<div class="view active" id="view-shop">
+  <header>
+    <img class="hero-logo" src="logo.png" alt="AS Creation logo">
+    <div class="eyebrow">Handmade Gifts &amp; Hampers</div>
+    <h1>Thoughtfully wrapped,<br><em>beautifully</em> yours.</h1>
+    <p class="tagline">Every piece made with care. Add to cart and checkout directly on WhatsApp.</p>
+  </header>
+
+  <div class="badges">
+    <div class="badge"><svg viewBox="0 0 24 24"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.6 21 3 14.4 3 6a2 2 0 0 1 1-2Z"/></svg>Handmade with Care</div>
+    <div class="badge"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Secure Checkout</div>
+    <div class="badge"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg>Pan-India Delivery</div>
+  </div>
+
+  <section class="catalog">
+    <div class="catalog-head">
+      <h2>Current Edit</h2>
+      <span>3 of 3 shown</span>
+    </div>
+    <div class="grid" id="productGrid"></div>
+    <p class="edit-note">Yeh sample products hain — real names, prices, photos se replace karna hoga.</p>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Customers Say</h2>
+    <p class="sub">Real feedback from happy customers.</p>
+    <div class="t-grid">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="quote">[Sample review — replace with a real customer quote about your product quality or packaging.]</p>
+        <div class="t-name"><b>[Customer Name]</b>, [City]</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="quote">[Sample review — replace with a real customer quote about delivery or service.]</p>
+        <div class="t-name"><b>[Customer Name]</b>, [City]</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="quote">[Sample review — replace with a real customer quote about a gift they ordered.]</p>
+        <div class="t-name"><b>[Customer Name]</b>, [City]</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CART VIEW ============ -->
+<div class="view" id="view-cart">
+  <div class="cart-wrap">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <div id="cartEmpty" class="empty-cart" style="display:none;">Cart khaali hai — kuch add karo Shop se.</div>
+    <div id="cartFooter" style="display:none;">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.003A7.94 7.94 0 0 0 20 12.06a7.9 7.9 0 0 0-2.4-5.74Z"/></svg>
+        Checkout on WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LOGIN VIEW ============ -->
+<div class="view" id="view-auth">
+  <div class="auth-wrap">
+    <div id="authForms">
+      <h2 id="authTitle">Login</h2>
+      <p class="sub" id="authSub">Welcome back — login to your account.</p>
+      <div class="field"><label>Email</label>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
+          <input type="email" id="authEmail" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="field"><label>Password</label>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          <input type="password" id="authPassword" placeholder="••••••••">
+        </div>
+      </div>
+      <button class="auth-btn" id="authSubmitBtn" onclick="handleAuthSubmit()">Login</button>
+      <div class="auth-msg" id="authMsg"></div>
+      <div class="auth-toggle">
+        <span id="authToggleText">New here?</span>
+        <button onclick="toggleAuthMode()" id="authToggleBtn">Create an account</button>
+      </div>
+    </div>
+    <div id="authLoggedIn" style="display:none;">
+      <p class="user-badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        Logged in as <b id="userEmailShow"></b>
+      </p>
+      <button class="logout-btn" onclick="handleLogout()">Log out</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CONTACT VIEW ============ -->
+<div class="view" id="view-contact">
+  <div class="contact-wrap">
+    <h2>Get in Touch</h2>
+    <p class="sub">Order or ask a question — we reply personally.</p>
+    <p class="contact-detail">
+      <svg viewBox="0 0 24 24"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2C9.6 21 3 14.4 3 6a2 2 0 0 1 1-2Z"/></svg>
+      <b>Phone:</b>&nbsp;[+91 XXXXXXXXXX]
+    </p>
+    <p class="contact-detail">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
+      <b>Email:</b>&nbsp;[ascreation@example.com]
+    </p>
+    <p class="contact-detail">
+      <svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      <b>Location:</b>&nbsp;[Your City, India]
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-wa" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.003A7.94 7.94 0 0 0 20 12.06a7.9 7.9 0 0 0-2.4-5.74Z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-ig" href="https://ig.me/m/YOUR_INSTAGRAM_USERNAME" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.55.22.95.47 1.37.89.42.42.67.82.89 1.37.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.55-.47.95-.89 1.37-.42.42-.82.67-1.37.89-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.37-.89 3.7 3.7 0 0 1-.89-1.37c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.55.47-.95.89-1.37.42-.42.82-.67 1.37-.89.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56a5.9 5.9 0 0 0-2.13 1.39A5.9 5.9 0 0 0 .62 4.14C.32 4.9.12 5.77.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13a5.9 5.9 0 0 0 2.13 1.39c.76.3 1.63.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.39 5.9 5.9 0 0 0 1.39-2.13c.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.39-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>
+        Instagram DM
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt="AS Creation logo">AS <span>Creation</span></div>
+  <p class="footer-tag">Thoughtfully wrapped, beautifully yours.</p>
+  <div class="footer-social">
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.003A7.94 7.94 0 0 0 20 12.06a7.9 7.9 0 0 0-2.4-5.74Z"/></svg>
+    </a>
+    <a href="https://instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+  <div class="footer-links">
+    <button onclick="showView('shop')">Shop</button>
+    <button onclick="showView('contact')">Contact</button>
+    <button onclick="showView('auth')">Login</button>
+  </div>
+  <div class="footer-copy">© <span id="footerYear"></span> AS Creation — Demo Preview</div>
+</footer>
+
+<!-- ============ FIREBASE (LOGIN) ============ -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+  // ⚠️ REPLACE with YOUR OWN Firebase project config (see setup guide provided separately).
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    appId: "YOUR_APP_ID"
+  };
+  let fbReady = false;
+  try {
+    firebase.initializeApp(firebaseConfig);
+    fbReady = true;
+  } catch(e) { console.warn("Firebase not configured yet."); }
+
+  let isLoginMode = true;
+
+  function toggleAuthMode(){
+    isLoginMode = !isLoginMode;
+    document.getElementById('authTitle').textContent = isLoginMode ? "Login" : "Create Account";
+    document.getElementById('authSub').textContent = isLoginMode ? "Welcome back — login to your account." : "Sign up to save your orders.";
+    document.getElementById('authSubmitBtn').textContent = isLoginMode ? "Login" : "Sign Up";
+    document.getElementById('authToggleText').textContent = isLoginMode ? "New here?" : "Already have an account?";
+    document.getElementById('authToggleBtn').textContent = isLoginMode ? "Create an account" : "Login instead";
+    document.getElementById('authMsg').textContent = "";
+  }
+
+  function handleAuthSubmit(){
+    const email = document.getElementById('authEmail').value.trim();
+    const pass = document.getElementById('authPassword').value;
+    const msg = document.getElementById('authMsg');
+    msg.className = "auth-msg";
+    if(!email || !pass){ msg.textContent = "Email aur password dono bharo."; msg.classList.add('err'); return; }
+    if(!fbReady){ msg.textContent = "Login abhi active nahi hai — Firebase config setup baaki hai."; msg.classList.add('err'); return; }
+
+    const action = isLoginMode
+      ? firebase.auth().signInWithEmailAndPassword(email, pass)
+      : firebase.auth().createUserWithEmailAndPassword(email, pass);
+
+    action.then((res) => {
+      msg.textContent = isLoginMode ? "Login successful!" : "Account created!";
+      msg.classList.add('ok');
+    }).catch((err) => {
+      msg.textContent = err.message;
+      msg.classList.add('err');
+    });
+  }
+
+  function handleLogout(){
+    if(fbReady) firebase.auth().signOut();
+  }
+
+  if(fbReady){
+    firebase.auth().onAuthStateChanged((user) => {
+      const forms = document.getElementById('authForms');
+      const logged = document.getElementById('authLoggedIn');
+      const navBtn = document.getElementById('loginNavBtn');
+      if(user){
+        forms.style.display = "none";
+        logged.style.display = "block";
+        document.getElementById('userEmailShow').textContent = user.email;
+        document.getElementById('loginNavLabel').textContent = "Account";
+      } else {
+        forms.style.display = "block";
+        logged.style.display = "none";
+        document.getElementById('loginNavLabel').textContent = "Login";
+      }
+    });
+  }
+</script>
+
+<!-- ============ SHOP / CART LOGIC ============ -->
+<script>
+  const products = [
+    { id: 1, name: "[Birthday Hamper Box]", price: 1299, desc: "[Describe what's inside — replace with real details.]", icon: 'gift' },
+    { id: 2, name: "[Charm Jewellery Set]", price: 799, desc: "[Describe the piece — replace with real details.]", icon: 'charm' },
+    { id: 3, name: "[Flower Bouquet Box]", price: 649, desc: "[Describe the bouquet — replace with real details.]", icon: 'flower' }
+  ];
+
+  const icons = {
+    gift: '<path d="M6 18h36v22H6z"/><path d="M6 18l4-8h28l4 8"/><path d="M24 10v30"/><path d="M17 10c0-4 3-6 7-6s7 2 7 6"/>',
+    charm: '<circle cx="24" cy="24" r="4"/><path d="M24 20c0-6-6-8-8-4-2 4 3 6 8 4Zm0 8c0 6-6 8-8 4-2-4 3-6 8-4Zm4-8c0-6 6-8 8-4 2 4-3 6-8 4Zm0 8c0 6 6 8 8 4 2-4-3-6-8-4Z"/>',
+    flower: '<circle cx="24" cy="16" r="7"/><circle cx="14" cy="26" r="7"/><circle cx="34" cy="26" r="7"/><circle cx="24" cy="34" r="7"/><rect x="21" y="32" width="6" height="10"/>'
+  };
+
+  let cart = []; // { id, qty }
+
+  function renderProducts(){
+    const grid = document.getElementById('productGrid');
+    grid.innerHTML = products.map((p, i) => `
+      <div class="card">
+        <div class="label">No. 0${i+1}</div>
+        <div class="frame"><svg class="glyph" viewBox="0 0 48 48">${icons[p.icon]}</svg></div>
+        <h3>${p.name}</h3>
+        <p class="desc">${p.desc}</p>
+        <div class="price-row">
+          <div class="price">₹${p.price}</div>
+          <button class="add-btn" onclick="addToCart(${p.id})">Add to Cart</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function addToCart(id){
+    const existing = cart.find(c => c.id === id);
+    if(existing) existing.qty += 1;
+    else cart.push({ id, qty: 1 });
+    updateCartCount();
+  }
+
+  function changeQty(id, delta){
+    const item = cart.find(c => c.id === id);
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty <= 0) cart = cart.filter(c => c.id !== id);
+    renderCart();
+  }
+
+  function removeItem(id){
+    cart = cart.filter(c => c.id !== id);
+    renderCart();
+  }
+
+  function updateCartCount(){
+    document.getElementById('cartCount').textContent = cart.reduce((s,c) => s + c.qty, 0);
+  }
+
+  function renderCart(){
+    updateCartCount();
+    const wrap = document.getElementById('cartItems');
+    const empty = document.getElementById('cartEmpty');
+    const footer = document.getElementById('cartFooter');
+    if(cart.length === 0){
+      wrap.innerHTML = "";
+      empty.style.display = "block";
+      footer.style.display = "none";
+      return;
+    }
+    empty.style.display = "none";
+    footer.style.display = "block";
+    let total = 0;
+    wrap.innerHTML = cart.map(c => {
+      const p = products.find(pr => pr.id === c.id);
+      total += p.price * c.qty;
+      return `
+        <div class="cart-item">
+          <div class="frame"><svg class="glyph" viewBox="0 0 48 48">${icons[p.icon]}</svg></div>
+          <div class="ci-info">
+            <h4>${p.name}</h4>
+            <div class="p">₹${p.price} × ${c.qty}</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(${p.id},-1)">−</button>
+            <span>${c.qty}</span>
+            <button onclick="changeQty(${p.id},1)">+</button>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${p.id})">Remove</button>
+        </div>
+      `;
+    }).join('');
+    document.getElementById('cartTotal').textContent = "₹" + total;
+  }
+
+  function checkoutWhatsApp(){
+    if(cart.length === 0) return;
+    let lines = ["Hi! I'd like to order:"];
+    let total = 0;
+    cart.forEach(c => {
+      const p = products.find(pr => pr.id === c.id);
+      total += p.price * c.qty;
+      lines.push(`- ${p.name} x${c.qty} (₹${p.price * c.qty})`);
+    });
+    lines.push(`Total: ₹${total}`);
+    const text = encodeURIComponent(lines.join("\n"));
+    window.open(`https://wa.me/91XXXXXXXXXX?text=${text}`, "_blank");
+  }
+
+  function showView(name){
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + name).classList.add('active');
+    if(name === 'cart') renderCart();
+    window.scrollTo({top:0, behavior:'smooth'});
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  function toggleMobileNav(){
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+  renderProducts();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+</script>
+
+</body>
+</html>
